@@ -127,3 +127,17 @@ title=双11推广提醒
 ```
 
 **短信发送计费说明：** 短信+签名包括2个 括号在内，总字数在**70字以内的每个手机计费1条**，**超过70个字按照67个字一条计费**
+
+## 短信发送
+
+`GET/POST` `http://test.emailcar.net/sms/send`
+
+```html
+GET http://test.emailcar.net/sms/send?api_user=xxxxx&api_pwd=xxxxx&template_id=1323&mobiles=13612340000,13612349999
+
+POST http://test.emailcar.net/sms/send
+api_user=xxxxx
+api_pwd=xxxxx
+template_id=1323
+mobiles=13612340000,13612349999
+```
