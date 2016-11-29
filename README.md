@@ -34,7 +34,7 @@ api_pwd=xxxxx
                 "id": "2123",
                 "title": "双11推广提醒",
                 "amount": 1,
-                "content": "【emailcar】双11马上就要开始了，开始使用emailcar向您的会员发送推广邮件吧",
+                "content": "【emailcar】双11马上就要开始了，开始使用emailcar向您的会员发送推广邮件吧！",
                 "status": "正在审核中"
             },
             {
@@ -82,10 +82,48 @@ id=2312
                 "id": "2123",
                 "title": "双11推广提醒",
                 "amount": 1,
-                "content": "【emailcar】双11马上就要开始了，开始使用emailcar向您的会员发送推广邮件吧",
+                "content": "【emailcar】双11马上就要开始了，开始使用emailcar向您的会员发送推广邮件吧！",
                 "status": "正在审核中"
             }
         ]
     }
 }
 ```
+
+## 短信模板添加
+
+
+`GET/POST` `http://test.emailcar.net/sms/tpl_add`
+
+### Request
+
+| 参数名 | 是否必填 | 说明 |
+|-------|---------|-----|
+| api_user | 必填 | 用户名 |
+| api_pwd | 必填 | 用户原密码 | 
+| content| 必填 | 短信模板内容，**不包括签名** |
+| sign | 必填 | 短信签名 3~8个字 |
+| title | 必填 | 短信模板标题 |
+
+```html
+GET http://test.emailcar.net/sms/tpl_add?api_user=xxxxx&api_pwd=xxxxx&content=双11马上就要开始了，开始使用emailcar向您的会员发送推广邮件吧！&sign=emailcar&title=双11推广提醒
+
+POST http://test.emailcar.net/sms/tpl_add
+api_user=xxxxx
+api_pwd=xxxxx
+content=双11马上就要开始了，开始使用emailcar向您的会员发送推广邮件吧！
+sign=emailcar
+title=双11推广提醒
+```
+
+```js
+{
+    "msg": "获取成功",
+    "status": "success",
+    "data": {
+        "id": "1323"
+    }
+}
+```
+
+**短信发送计费说明：** 短信+签名包括2个 括号在内，总字数在**70字以内的每个手机计费1条**，**超过70个字按照67个字一条计费**
