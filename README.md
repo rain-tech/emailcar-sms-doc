@@ -14,9 +14,6 @@
 | api_pwd | 必填 | 用户原密码 | 
 | id      | 非必填 | 模板 id |
 
-### Response
-**查询所有短信模板信息**
-
 ```html
 GET http://test.emailcar.net/sms/tpl_get?api_user=xxxxx&api_pwd=xxxxx  
 
@@ -24,6 +21,21 @@ POST http://test.emailcar.net/sms/tpl_get
 api_user=xxxxx
 api_pwd=xxxxx
 ```
+
+### Response
+
+| 属性 | 详细说明| 示例 |
+|-----|--------|
+| `msg` | 查询消息 | `"获取成功"` `"用户密码错误"` `"模板不存在"` |
+| `status` | 查询结果 | `"success"` `"error"` |
+| `data` | 详细信息 | |
+| `data.lists` | 短信模板数据 | |
+| `data.lists[].id` | 模板ID |
+| `data.lists[].title` | 短信模板标题 | |
+| `data.lsits[].amount` | 短信条数 | |
+| `data.lists[].content` | 短信模板内容 | |
+| `data.lists[].status` | 审核状态 | `"正在审核中"` `"审核通过"` `"未通过审核，原因：包含非法内容"` |
+
 ```js
 {
     "msg": "获取成功",
@@ -48,18 +60,6 @@ api_pwd=xxxxx
     }
 }
 ```
-
-| 属性 | 详细说明| 示例 |
-|-----|--------|
-| `msg` | 查询消息 | `"获取成功"` `"用户密码错误"` `"模板不存在"` |
-| `status` | 查询结果 | `"success"` `"error"` |
-| `data` | 详细信息 | |
-| `data.lists` | 短信模板数据 | |
-| `data.lists[].id` | 模板ID |
-| `data.lists[].title` | 短信模板标题 | |
-| `data.lsits[].amount` | 短信条数 | |
-| `data.lists[].content` | 短信模板内容 | |
-| `data.lists[].status` | 审核状态 | `"正在审核中"` `"审核通过"` `"未通过审核，原因：包含非法内容"` |
 
 
 ### 查询单个短信模板的信息
@@ -116,6 +116,8 @@ sign=emailcar
 title=双11推广提醒
 ```
 
+### Response
+
 ```js
 {
     "msg": "获取成功",
@@ -132,6 +134,15 @@ title=双11推广提醒
 
 `GET/POST` `http://test.emailcar.net/sms/send`
 
+### Request
+
+| 参数名 | 是否必填 | 说明 |
+|-------|---------|-----|
+| api_user | 必填 | 用户名 |
+| api_pwd | 必填 | 用户原密码 | 
+| template_id| 必填 | 模板ID |
+| mobiles | 必填 | 收信手机号码（支持多手机号，以英文逗号分隔，最多不超过300个手机号） |
+
 ```html
 GET http://test.emailcar.net/sms/send?api_user=xxxxx&api_pwd=xxxxx&template_id=1323&mobiles=13612340000,13612349999
 
@@ -140,4 +151,14 @@ api_user=xxxxx
 api_pwd=xxxxx
 template_id=1323
 mobiles=13612340000,13612349999
+```
+
+```js
+{
+    "msg": "发送成功",
+    "status": "success",
+    "data": {
+        "id": "2131"
+    }
+}
 ```
