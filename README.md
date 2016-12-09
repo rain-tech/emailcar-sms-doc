@@ -1,6 +1,8 @@
 # Emailcar 短信API接口
 
 
+api_user api_pwd 在 http://test.emailcar.net/register 注册
+
 ## 短信模板获取
 
 
