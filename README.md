@@ -1,25 +1,25 @@
 # Emailcar 短信API接口
 
 
-api_user api_pwd 在 http://test.emailcar.net/register 注册
+api_user api_pwd 在 http://www.emailcar.net/register 注册
 
 ## 短信模板获取
 
 
-`GET/POST` `http://test.emailcar.net/sms/tpl_get`
+`GET/POST` `http://www.emailcar.net/sms/tpl_get`
 
 ### Request
 
 | 参数名 | 是否必填 | 说明 |
 |-------|---------|-----|
 | api_user | 必填 | 用户名 |
-| api_pwd | 必填 | 用户密码 | 
+| api_pwd | 必填 | 用户密码 |
 | id      | 非必填 | 模板 id |
 
 ```html
-GET http://test.emailcar.net/sms/tpl_get?api_user=xxxxx&api_pwd=xxxxx  
+GET http://www.emailcar.net/sms/tpl_get?api_user=xxxxx&api_pwd=xxxxx  
 
-POST http://test.emailcar.net/sms/tpl_get
+POST http://www.emailcar.net/sms/tpl_get
 api_user=xxxxx
 api_pwd=xxxxx
 ```
@@ -67,9 +67,9 @@ api_pwd=xxxxx
 ### 查询单个短信模板的信息
 
 ```html
-GET http://test.emailcar.net/sms/tpl_get?api_user=xxxxx&api_pwd=xxxxx&id=2312  
+GET http://www.emailcar.net/sms/tpl_get?api_user=xxxxx&api_pwd=xxxxx&id=2312  
 
-POST http://test.emailcar.net/sms/tpl_get
+POST http://www.emailcar.net/sms/tpl_get
 api_user=xxxxx
 api_pwd=xxxxx
 id=2312
@@ -95,22 +95,22 @@ id=2312
 ## 短信模板添加
 
 
-`GET/POST` `http://test.emailcar.net/sms/tpl_add`
+`GET/POST` `http://www.emailcar.net/sms/tpl_add`
 
 ### Request
 
 | 参数名 | 是否必填 | 说明 |
 |-------|---------|-----|
 | api_user | 必填 | 用户名 |
-| api_pwd | 必填 | 用户密码 | 
+| api_pwd | 必填 | 用户密码 |
 | content| 必填 | 短信模板内容，**不包括签名** |
 | sign | 必填 | 短信签名 3~8个字 |
 | title | 必填 | 短信模板标题 |
 
 ```html
-GET http://test.emailcar.net/sms/tpl_add?api_user=xxxxx&api_pwd=xxxxx&content=双11马上就要开始了，开始使用emailcar向您的会员发送推广邮件吧！&sign=emailcar&title=双11推广提醒
+GET http://www.emailcar.net/sms/tpl_add?api_user=xxxxx&api_pwd=xxxxx&content=双11马上就要开始了，开始使用emailcar向您的会员发送推广邮件吧！&sign=emailcar&title=双11推广提醒
 
-POST http://test.emailcar.net/sms/tpl_add
+POST http://www.emailcar.net/sms/tpl_add
 api_user=xxxxx
 api_pwd=xxxxx
 content=双11马上就要开始了，开始使用emailcar向您的会员发送推广邮件吧！
@@ -140,21 +140,21 @@ title=双11推广提醒
 
 ## 短信发送
 
-`GET/POST` `http://test.emailcar.net/sms/send`
+`GET/POST` `http://www.emailcar.net/sms/send`
 
 ### Request
 
 | 参数名 | 是否必填 | 说明 |
 |-------|---------|-----|
 | api_user | 必填 | 用户名 |
-| api_pwd | 必填 | 用户密码 | 
+| api_pwd | 必填 | 用户密码 |
 | template_id| 必填 | 模板ID |
 | mobiles | 必填 | 收信手机号码（支持多手机号，以英文逗号分隔，最多不超过300个手机号） |
 
 ```html
-GET http://test.emailcar.net/sms/send?api_user=xxxxx&api_pwd=xxxxx&template_id=1323&mobiles=13612340000,13612349999
+GET http://www.emailcar.net/sms/send?api_user=xxxxx&api_pwd=xxxxx&template_id=1323&mobiles=13612340000,13612349999
 
-POST http://test.emailcar.net/sms/send
+POST http://www.emailcar.net/sms/send
 api_user=xxxxx
 api_pwd=xxxxx
 template_id=1323
